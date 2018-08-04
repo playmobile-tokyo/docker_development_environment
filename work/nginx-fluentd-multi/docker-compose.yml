@@ -22,7 +22,7 @@ services:
     ports:
       - 24225:24224
     links:
-      - fluentd_0
+      - fluentd_aggregation
 
   nginx_2:
     build: ./nginx_2
@@ -45,7 +45,7 @@ services:
     ports:
       - 24226:24224
     links:
-      - fluentd_0
+      - fluentd_aggregation
 
   # fpm
   fpm:
@@ -56,11 +56,11 @@ services:
     expose:
       - 9000
 
-  # correct fluentd
-  fluentd_0:
-    build: ./fluentd_0
+  # fluentd aggregation
+  fluentd_aggregation:
+    build: ./fluentd_aggregation
     volumes:
-      - ./fluentd_0/config:/fluentd/etc
-      - ./fluentd_0/log:/var/log
+      - ./fluentd_aggregation/config:/fluentd/etc
+      - ./fluentd_aggregation/log:/var/log
     ports:
       - 24224:24224
