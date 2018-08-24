@@ -7,9 +7,10 @@ services:
       - "8080:8080"
     volumes:
       - ./go:/go
-    command: >
-      bash -c 'go get -u github.com/goadesign/goa/... &&
-        cd /go/src/cellar &&
-        goagen bootstrap -d cellar/design &&
-        go build -o cellar && 
-        ./cellar'
+    tty: true
+#    command: >
+#      bash -c 'go get -u github.com/goadesign/goa/... &&
+#        cd /go/src/cellar &&
+#        goagen bootstrap -d cellar/design &&
+#        go build -o cellar && 
+#        ./cellar'

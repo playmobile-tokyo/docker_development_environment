@@ -5,4 +5,4 @@ WORKDIR /go
 
 ADD . /go
 
-# CMD ["go", "get", "-u", "github.com/goadesign/goa/..."]
+CMD ["go", "get", "-u", "github.com/goadesign/goa/..."]
