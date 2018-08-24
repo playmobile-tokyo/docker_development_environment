@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  app:
+    build: ./golang
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./go:/go
+    command: >
+      bash -c 'go get -u github.com/goadesign/goa/... &&
+        cd /go/src/cellar &&
+        goagen bootstrap -d cellar/design &&
+        go build -o cellar && 
+        ./cellar'
