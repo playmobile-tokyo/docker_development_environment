@@ -1,0 +1,18 @@
+Port = "29300"
+LogLevel = "error"
+Timeout = 5
+MaxIdleConnsPerHost = 100
+DisableCompression = false
+IdleConnTimeout = 30
+ProxyReadTimeout = 60
+ShutdownTimeout = 15
+
+[[Endpoints]]
+Name = "ep-1"
+Ep = "localhost:29300"
+ProxySetHeaders = []
+
+[[Endpoints]]
+Name = "ep-2"
+Ep = "http://weather.livedoor.com"
+ProxySetHeaders = []
