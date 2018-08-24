@@ -4,6 +4,6 @@ services:
   app:
     build: ./golang
     ports:
-      - "5000:5000"
+      - "29300:29300"
     volumes:
       - ./go:/go
