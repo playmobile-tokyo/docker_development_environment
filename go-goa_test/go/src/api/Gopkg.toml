@@ -1,0 +1,13 @@
+# required = ["github.com/goadesign/goa/goagen"]
+
+[prune]
+  go-tests = true
+  unused-packages = true
+
+[[constraint]]
+  name = "github.com/goadesign/goa"
+  version = "1.4.0"
+
+[[override]]
+  name = "github.com/satori/go.uuid"
+  revision = "master"
