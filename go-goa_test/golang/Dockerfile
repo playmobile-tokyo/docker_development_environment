@@ -12,7 +12,7 @@ RUN apk update \
   && apk add --no-cache git \
   && go get -u github.com/goadesign/goa/... \
   && go get -u github.com/golang/dep/cmd/dep \
-  && goagen bootstrap -d cellar/design \
+  && goagen bootstrap -d api/cellar/design \
   && dep ensure
 
 # コンテナ実行時のデフォルトを設定する
