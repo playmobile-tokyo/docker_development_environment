@@ -9,12 +9,14 @@ services:
       - ./nginx/html:/usr/share/nginx/html
     ports:
       - 8080:80
-    links:
-      - fluentd
+#    links:
+#      - fluentd
 
-  fluentd:
-    build: ./fluentd
-    volumes:
-      - ./fluentd/config:/fluentd/etc
-      - ./fluentd/log:/var/log
-      - ./nginx/log:/var/log/nginx
+#  fluentd:
+#    build: ./fluentd
+#    volumes:
+#      - ./fluentd/config:/fluentd/etc
+#      - ./fluentd/log:/var/log
+#      - ./nginx/log:/var/log/nginx
+#    extra_hosts:
+#      - "local_dev:10.0.2.15"    
