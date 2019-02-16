@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  app:
+    build: ./golang
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./go:/go
+    command: >
+      bash -c "cd /go/src && goagen bootstrap -d api_design/voices -o /go/src/vocatuku_api 
+      && cd /go/src/vocatuku_api && go build -o /go/src/vocatuku_api/target/exec 
+      && dep init 
+      && /go/src/vocatuku_api/target/exec"
+#    command: >
+#      bash -c "cd /go/src/vocatuku_api && go build -o /go/src/vocatuku_api/target/exec 
+#      && /go/src/vocatuku_api/target/exec"
