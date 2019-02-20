@@ -8,10 +8,16 @@ services:
     volumes:
       - ./go:/go
     command: >
-      bash -c "cd /go/src && goagen bootstrap -d api_design/voices -o /go/src/vocatuku_api 
+      bash -c "echo $PATH
       && cd /go/src/vocatuku_api && go build -o /go/src/vocatuku_api/target/exec 
-      && dep init 
       && /go/src/vocatuku_api/target/exec"
 #    command: >
-#      bash -c "cd /go/src/vocatuku_api && go build -o /go/src/vocatuku_api/target/exec 
+#      bash -c "echo $PATH
+#      && go get -u github.com/goadesign/goa/...
+#      && go get -u github.com/golang/dep/cmd/dep
+#      && cd /go/src && goagen bootstrap -d api_design/voices -o /go/src/vocatuku_api 
+#      && cd /go/src/vocatuku_api
+#      && dep init
+#      && dep ensure
+#      && go build -o /go/src/vocatuku_api/target/exec 
 #      && /go/src/vocatuku_api/target/exec"
