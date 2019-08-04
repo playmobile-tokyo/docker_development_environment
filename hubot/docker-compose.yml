@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  hubot:
+    build: ./node
+    tty: true
+    volumes:
+      - ./hubot:/home/hubot
+    ports:
+      - 8080:8080
+    command: >
+      bash -c "echo $PATH"
+# && HUBOT_SLACK_TOKEN=xxxx-9999999999-9999999999-Kb7nWr ./bin/hubot --adapter slack"
+
+# docker exec -it xxxxxx bash
+# yo hubot
