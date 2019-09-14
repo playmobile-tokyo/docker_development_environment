@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx/config/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/log:/var/log/nginx
+      - ../hello:/usr/share/nginx/app
+    ports:
+      - 8080:80
+    links:
+      - fpm
+  fpm:
+    build: ./php-fpm
+    volumes:
+      - ../hello:/usr/share/nginx/app
+#      - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
+      - ./php-fpm/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+
+#    expose:
+#      - 9000
+#      - 9001
+
+#    command: >
+#      sh -c 'mkdir -p /usr/share/nginx/app/storage && chmod -R 777 /usr/share/nginx/app/storage'
+
